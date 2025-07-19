@@ -12,6 +12,7 @@ Bugs
 Note it creates m4a by default so rename your m4as into mp4s before converting. Also try to use downloads folder and subfolders to run app and exhale from due to mac permissions.
 Note setting 0 only works with <32khz this is from exhale. 
 To build you need to download ffmpeg first and add into your buildfolder.
+It is large because it bundles both intel ffmpeg 75mb and apple silicon ffmpeg 50mb. Would be a lot smaller with one or other.
 
 Features
 🎵 Multi-Format Support
