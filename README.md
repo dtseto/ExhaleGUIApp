@@ -7,43 +7,43 @@ I created this after finding the fre ac mac gui did not support newer exhale ver
 
 Overview
 ExhaleGUI simplifies the process of converting audio files to high-quality AAC format using the Exhale encoder. With support for batch processing, parallel conversions, and multiple input formats, it's designed to make professional audio encoding accessible through a clean, native macOS interface.
+
+Bugs
+Note it creates m4a by default so rename your m4as into mp4s before converting. Also try to use downloads folder and subfolders to run app and exhale from due to mac permissions.
+Note setting 0 only works with <32khz this is from exhale. 
+To build you need to download ffmpeg first and add into your buildfolder.
+
 Features
 🎵 Multi-Format Support
-
 Input formats: WAV, MP3, FLAC, M4A, AAC
 Output format: M4A (AAC) using Exhale encoder
 Smart conversion: Automatically handles format conversion via bundled FFmpeg
 
 ⚡ Batch Processing
-
-Drag-and-drop multiple files at once
+Drag-and-drop multiple files at once 
 Parallel conversion (1-8 concurrent processes)
 Real-time progress tracking for each file
 Queue management with add/remove capabilities
 
 🎛️ Quality Presets
 Choose from Exhale's comprehensive quality options:
-
 Standard HE-AAC (0-9): 48 kbps to 192+ kbps
-eSBR Low-Bitrate (a-g): 36-108 kbps for efficient encoding
+eSBR Low-Bitrate (a-g): 36-108 kbps for efficient encoding (these are recommended)
 Preset 5 (128 kbps) set as default for optimal quality/size balance
 
 🔧 Advanced Options
-
 Metadata preservation: Maintain ID tags from source files (note most players do not support tags for xe aac)
 Source file management: Optional deletion after successful conversion
 Custom temp directories: Configure temporary file locations
 Exhale binary configuration: Point to your Exhale installation (suggest using exhale and gui in downloads folder)
 
 💻 Native macOS Experience
-
 Clean, modern SwiftUI interface
 Drag-and-drop file handling
 Settings tabs for easy configuration
 Real-time conversion status updates
 
 Requirements
-
 macOS 11.0+ (Big Sur or later)
 Exhale encoder binary - Download from GitLab
 Intel or Apple Silicon Mac (Universal support)
@@ -73,7 +73,7 @@ Presets a-g: eSBR encoding for lower bitrates (36-108 kbps)
 
 Advanced Features
 
-Parallel conversions: Adjust in Settings → Advanced (default: 2)
+Parallel conversions: Adjust in Settings → Advanced (default: 2) (note exhale is not multithreaded so only multiple files sped up not one)
 Metadata preservation: Enable in Settings → General
 Source file deletion: Enable with caution in Settings → General
 
@@ -85,7 +85,6 @@ Other formats: Two-step process:
 
 Step 1: Convert to WAV using bundled FFmpeg
 Step 2: Encode to M4A using Exhale
-
 
 
 Performance
