@@ -130,7 +130,12 @@ struct ContentView: View {
         }
         .fileImporter(
             isPresented: $showingFilePicker,
-            allowedContentTypes: [.wav, .audio],
+            allowedContentTypes: [
+                .wav,           // WAV files
+                .mp3,           // MP3 files
+                .mpeg4Movie,    // MP4 files (this is the key addition!)
+                .audio          // Catch-all for other audio formats
+            ],
             allowsMultipleSelection: true
         ) { result in
             switch result {

@@ -105,12 +105,13 @@ class AudioConverter: ObservableObject {
         item.status = .converting
         item.progress = 0
         
-        let outputURL = item.inputURL.deletingPathExtension().appendingPathExtension("m4a")
-        
+        // Use the safe output URL to prevent overwriting
+        let outputURL = item.inputURL.safeOutputM4AURL
+
         do {
             let inputExt = item.inputURL.pathExtension.lowercased()
             
-            if ["mp3", "flac", "m4a", "aac"].contains(inputExt) {
+            if ["mp3", "flac", "m4a", "aac", "mp4"].contains(inputExt) {
                 // Two-step conversion: MP3/FLAC → WAV → M4A
                 print("📀 Multi-step conversion detected")
                 
